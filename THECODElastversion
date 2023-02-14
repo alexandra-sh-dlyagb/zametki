@@ -1,0 +1,43 @@
+print ('Добро пожаловать в Заметки')
+print ('Выберите пожалуйста, что Вы хотите сделать? Дописать? Создать и записать? Прочитать? Может, переименовать?')
+request = str(input())
+if request == 'Прочитать': # or request == 'прочитать':
+    ReadNote()
+elif request == 'Дописать':
+    WriteDownNote()
+elif request == 'Создать и записать':
+    print ('Введите желаемое имя файла')
+    CreateWriteNote()
+elif request == 'Переименовать':
+    print ('Введите имя файла, который мы переименуем')
+    print ('Введите новое имя')
+    newName = input()
+    import os
+    os.rename(fileName, newName)
+else:
+    print ('Похоже, Вы неправильно ввели название команды. Попробуйте еще раз)')
+
+def ReadNote():
+    print ('Введите имя файла, который мы считаем')
+    fileName = str(input())
+    x = open(fileName,'r')
+    x.readlines()
+    x.close()
+
+def CreateWriteNote ():
+    print ('Введите желаемое имя файла')
+    fileName = str(input())
+    print ('Введите то, что хотите записать')
+    perfectLine = str(input())
+    x = open(fileName,'w')
+    x.write(perfectLine)
+    x.close()
+
+def WriteDownNote (filename, yourLine):
+    print ('Введите желаемое имя файла')
+    fileName = str(input())
+    print ('Введите то, что хотите записать')
+    yourLine = str(input())
+    x = open(filename, 'a')
+    x.write(yourLine)
+    x.close()
